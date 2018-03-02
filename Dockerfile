@@ -28,11 +28,12 @@ RUN set -ex \
 				neovim \
 				tmux
 
+# install vim-plug and associated plugins
+ENV SHELL /bin/bash
 RUN set -ex \
 		&& curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-				https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-ENV SHELL /bin/bash
+				https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+		&& nvim +PlugInstall +qall
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 CMD ["bash", "-c", "exec tmux"]
