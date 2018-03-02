@@ -2,6 +2,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 "quickly open/reload .vimrc
